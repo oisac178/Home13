@@ -1,0 +1,29 @@
+﻿<Window x:Class="Home13.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Home13"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox HorizontalAlignment="Left" Height="335" Margin="10,25,0,0" VerticalAlignment="Top" Width="285" SelectionChanged="ListBox_SelectionChanged">
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+        </ListBox>
+        <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Тип счёта" DisplayMemberBinding="{Binding NumberAccount}"/>
+                    <GridViewColumn Header="Сумма" DisplayMemberBinding="{Binding Total}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Открыть" HorizontalAlignment="Left" Margin="325,175,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddCommand}"/>
+        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="430,175,0,0" VerticalAlignment="Top" Width="75" Command="{Binding DelCommand}"/>
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="585,360,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveCommand}"/>
+    </Grid>
+</Window>
