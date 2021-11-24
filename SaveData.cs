@@ -10,20 +10,19 @@ namespace Home13
 {
     public class SaveData
     {
-        string path = @"clients.json";
-        Clients people = new Clients();
-        people.ClientsFromJSON(path);
-    
+        static readonly string path = @"clients.json";
 
-    public void ClientsFromJSON(string Path)
+        public Clients ClientsFromJSON()
         {
-            string json = File.ReadAllText(Path);
-            people = JsonConvert.DeserializeObject<ObservableCollection<Clients>>(json);
+            string json = File.ReadAllText(path);
+            var people = JsonConvert.DeserializeObject<Clients>(json);
+            return people;
         }
-    }
-    public void ClientsToJSON(string Path)
-    {
-        string json = JsonConvert.SerializeObject(people);
-        File.WriteAllText(Path, json);
+
+        public void ClientsToJSON(Clients clients)
+        {
+            string json = JsonConvert.SerializeObject(clients);
+            File.WriteAllText(path, json);
+        }
     }
 }

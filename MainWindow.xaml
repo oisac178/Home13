@@ -4,23 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Home13"
+        xmlns:local="clr-namespace:DataProvidersApp"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="clientsProvider"
+                ObjectType="{x:Type local:SavaData}" MethodName="ClientsFromJSON" />
+    </Window.Resources>
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="335" Margin="10,25,0,0" VerticalAlignment="Top" Width="285" SelectionChanged="ListBox_SelectionChanged">
-            <ListBoxItem></ListBoxItem>
-            <ListBoxItem></ListBoxItem>
-            <ListBoxItem></ListBoxItem>
-            <ListBoxItem></ListBoxItem>
-            <ListBoxItem></ListBoxItem>
+        <ListBox HorizontalAlignment="Left" Height="335" Margin="10,25,0,0" VerticalAlignment="Top" Width="285" SelectionChanged="ListBox_SelectionChanged"
+                 ItemsSource="{Binding Source={StaticResource clientsProvider}}">
+            <ListBoxItem>Клиент1</ListBoxItem>
+            <ListBoxItem>Клиент2</ListBoxItem>
+            <ListBoxItem>Клиент3</ListBoxItem>
+            <ListBoxItem>Клиент4</ListBoxItem>
+            <ListBoxItem>Клиент5</ListBoxItem>
         </ListBox>
-        <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380">
+        <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{DynamicResource ResourceKey=account}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Тип счёта" DisplayMemberBinding="{Binding NumberAccount}"/>
+                    <GridViewColumn Header="Тип счёта" DisplayMemberBinding="{Binding Acc}"/>
                     <GridViewColumn Header="Сумма" DisplayMemberBinding="{Binding Total}"/>
                 </GridView>
             </ListView.View>
+            <ListView.Resources>
+                <col:ArrayList x:Key="account">
+                    <local:Clients Acc="дебетовый" Total="54990" />
+                    <local:Clients Acc="недебетовый" Total="39990" />
+                </col:ArrayList>
+            </ListView.Resources>
         </ListView>
         <Button Content="Открыть" HorizontalAlignment="Left" Margin="325,175,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddCommand}"/>
         <Button Content="Закрыть" HorizontalAlignment="Left" Margin="430,175,0,0" VerticalAlignment="Top" Width="75" Command="{Binding DelCommand}"/>

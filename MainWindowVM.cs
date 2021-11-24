@@ -56,7 +56,7 @@ namespace Home13
             }
         }
 
-        public Department SelectDepart
+        public Clients SelectDepart
         {
             get { return selectDepart; }
             set
@@ -65,5 +65,7 @@ namespace Home13
                 RaisePropertyChanged(nameof(SelectDepart));
             }
         }
+
+       
     }
 }
