@@ -15,7 +15,16 @@ namespace Home13
     {
         public ObservableCollection<Clients> People { get; set; } = new ObservableCollection<Clients>();
         private Clients selectDepart;
+        private SaveData saveData;
 
+        public SaveData LoadWriteData
+        {
+            get { return saveData; }
+            set
+            {
+
+            }
+        }
         private RelayCommand addCommand;
         private RelayCommand delCommand;
         public RelayCommand AddCommand
