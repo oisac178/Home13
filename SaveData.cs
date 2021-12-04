@@ -8,7 +8,15 @@ using Newtonsoft.Json;
 
 namespace Home13
 {
-    public class SaveData
+    public interface ILoad
+    {
+        Clients ClientsFromJSON();
+    }
+    public interface ISave
+    {
+        void ClientsToJSON(Clients clients);
+    }
+    public class SaveData : ILoad, ISave
     {
         static readonly string path = @"clients.json";
 

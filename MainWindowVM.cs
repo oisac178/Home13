@@ -19,10 +19,13 @@ namespace Home13
 
         public SaveData LoadWriteData
         {
-            get { return saveData; }
+            get { return this.saveData; }
             set
             {
-
+                if (this.saveData != value)
+                {
+                    this.saveData = value;
+                }
             }
         }
         private RelayCommand addCommand;
