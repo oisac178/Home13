@@ -17,6 +17,10 @@ namespace Home13
         private Clients selectDepart;
         private SaveData saveData;
 
+        public MainWindowVM(ILoad load)
+        {
+            saveData = load;
+        }
         public SaveData LoadWriteData
         {
             get { return this.saveData; }

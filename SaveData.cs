@@ -11,12 +11,10 @@ namespace Home13
     public interface ILoad
     {
         Clients ClientsFromJSON();
-    }
-    public interface ISave
-    {
         void ClientsToJSON(Clients clients);
     }
-    public class SaveData : ILoad, ISave
+   
+    public class SaveData : ILoad
     {
         static readonly string path = @"clients.json";
 
