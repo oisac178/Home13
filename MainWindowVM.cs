@@ -15,13 +15,13 @@ namespace Home13
     {
         public ObservableCollection<Clients> People { get; set; } = new ObservableCollection<Clients>();
         private Clients selectDepart;
-        private SaveData saveData;
+        private ILoad saveData;
 
         public MainWindowVM(ILoad load)
         {
             saveData = load;
         }
-        public SaveData LoadWriteData
+        public ILoad LoadWriteData
         {
             get { return this.saveData; }
             set
@@ -41,20 +41,7 @@ namespace Home13
                 return addCommand ??
                     (addCommand = new RelayCommand(obj =>
                     {
-                    Department departament = new Department { Name = "2345" };
-                    for (int i = 1; i < 10; i++)
-                    {
-                        departament.Employee.Add(new Human("имя"+i, "фамилия"+i, "должность"+i, 1000));
-                    }    
-                    if (!Inner.Any())
-                        {
-                            Inner.Add(departament);
-                        }
-                    else
-                        {
-                            departament.Name = "{111555}";
-                            SelectDepart?.Inner.Add(departament);
-                        }
+                    
                     }));
             }
         }
@@ -65,9 +52,7 @@ namespace Home13
                 return delCommand ??
                     (delCommand = new RelayCommand(obj =>
                     {
-                        Department departament = new Department();
-                        Inner.Remove(departament);
-                        SelectDepart = departament;
+                        
                     }));
             }
         }
