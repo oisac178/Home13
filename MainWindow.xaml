@@ -9,11 +9,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <ListBox HorizontalAlignment="Left" Height="335" Margin="10,25,0,0" VerticalAlignment="Top" Width="285" SelectionChanged="ListBox_SelectionChanged">
-            <ListBoxItem>Клиент1</ListBoxItem>
-            <ListBoxItem>Клиент2</ListBoxItem>
-            <ListBoxItem>Клиент3</ListBoxItem>
-            <ListBoxItem>Клиент4</ListBoxItem>
-            <ListBoxItem>Клиент5</ListBoxItem>
+            <ListBoxItem DataContext="{Binding People}"></ListBoxItem>            
         </ListBox>
         <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{DynamicResource ResourceKey=account}">
             <ListView.View>
