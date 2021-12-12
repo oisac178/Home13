@@ -8,8 +8,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="335" Margin="10,25,0,0" VerticalAlignment="Top" Width="285" SelectionChanged="ListBox_SelectionChanged">
-            <ListBoxItem DataContext="{Binding People}"></ListBoxItem>            
+        <ListBox HorizontalAlignment="Left" Height="315" Margin="10,25,0,0" VerticalAlignment="Top" Width="285">
+            <ListBoxItem DataContext="{Binding People}"></ListBoxItem>
         </ListBox>
         <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{DynamicResource ResourceKey=account}">
             <ListView.View>
@@ -20,12 +20,14 @@
             </ListView.View>
             <ListView.Resources>
                 <col:ArrayList x:Key="account">
-                    
+
                 </col:ArrayList>
             </ListView.Resources>
         </ListView>
         <Button Content="Открыть" HorizontalAlignment="Left" Margin="325,175,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddCommand}"/>
         <Button Content="Закрыть" HorizontalAlignment="Left" Margin="430,175,0,0" VerticalAlignment="Top" Width="75" Command="{Binding DelCommand}"/>
         <Button Content="Сохранить" HorizontalAlignment="Left" Margin="585,360,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveCommand}"/>
+        <Button Content="Добавить клиента" HorizontalAlignment="Left" Margin="170,365,0,0" VerticalAlignment="Top" Width="125" Command="{Binding AddCommand}"/>
+        <TextBox x:Name="newClient" HorizontalAlignment="Left" Height="23" Margin="10,365,0,0" TextWrapping="Wrap" MaxLength="40" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

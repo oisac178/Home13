@@ -41,7 +41,8 @@ namespace Home13
                 return addCommand ??
                     (addCommand = new RelayCommand(obj =>
                     {
-                    
+                        Clients client = new Clients();
+                        People.Add(client);
                     }));
             }
         }
