@@ -19,6 +19,7 @@ namespace Home13
 
         public MainWindowVM(ILoad load)
         {
+            People.Add(new Clients { Name = "asdf" });
             saveData = load;
         }
         public ILoad LoadWriteData

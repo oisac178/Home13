@@ -8,10 +8,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="315" Margin="10,25,0,0" VerticalAlignment="Top" Width="285">
-            <ListBoxItem DataContext="{Binding People}"></ListBoxItem>
+        <ListBox HorizontalAlignment="Left" Height="315" Margin="10,25,0,0" VerticalAlignment="Top" Width="285" ItemsSource="{Binding People}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
-        <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{DynamicResource ResourceKey=account}">
+        <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{Binding People}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Тип счёта" DisplayMemberBinding="{Binding Acc}"/>
