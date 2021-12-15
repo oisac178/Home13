@@ -14,7 +14,7 @@ namespace Home13
     public class MainWindowVM : ViewModelBase
     {
         public ObservableCollection<Clients> People { get; set; } = new ObservableCollection<Clients>();
-        private Clients selectDepart;
+        private Clients selectClient;
         private ILoad saveData;
 
         public MainWindowVM(ILoad load)
@@ -35,6 +35,21 @@ namespace Home13
         }
         private RelayCommand addCommand;
         private RelayCommand delCommand;
+        private RelayCommand openCommand;
+        private RelayCommand closeCommand;
+        private RelayCommand saveCommand;
+
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                RaisePropertyChanged(nameof(Name));
+                name = value;
+            }
+        }
         public RelayCommand AddCommand
         {
             get
@@ -42,7 +57,7 @@ namespace Home13
                 return addCommand ??
                     (addCommand = new RelayCommand(obj =>
                     {
-                        Clients client = new Clients();
+                        Clients client = new Clients { Name = this.Name};
                         People.Add(client);
                     }));
             }
@@ -54,18 +69,54 @@ namespace Home13
                 return delCommand ??
                     (delCommand = new RelayCommand(obj =>
                     {
-                        
+                        People.Remove(SelectClient);
                     }));
             }
         }
 
-        public Clients SelectDepart
+        public RelayCommand OpenCommand
         {
-            get { return selectDepart; }
+            get
+            {
+                return openCommand ??
+                    (openCommand = new RelayCommand(obj =>
+                    {
+
+                    }));
+            }
+        }
+
+        public RelayCommand CloseCommand
+        {
+            get
+            {
+                return closeCommand ??
+                    (closeCommand = new RelayCommand(obj =>
+                    {
+
+                    }));
+            }
+        }
+
+        public RelayCommand SaveCommand
+        {
+            get
+            {
+                return saveCommand ??
+                    (saveCommand = new RelayCommand(obj =>
+                    {
+
+                    }));
+            }
+        }
+
+        public Clients SelectClient
+        {
+            get { return selectClient; }
             set
             {
-                selectDepart = value;
-                RaisePropertyChanged(nameof(SelectDepart));
+                selectClient = value;
+                RaisePropertyChanged(nameof(SelectClient));
             }
         }
 

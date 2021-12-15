@@ -30,10 +30,11 @@
                 </col:ArrayList>
             </ListView.Resources>
         </ListView>
-        <Button Content="Открыть" HorizontalAlignment="Left" Margin="325,175,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddCommand}"/>
-        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="430,175,0,0" VerticalAlignment="Top" Width="75" Command="{Binding DelCommand}"/>
+        <Button Content="Открыть" HorizontalAlignment="Left" Margin="325,175,0,0" VerticalAlignment="Top" Width="75" Command="{Binding OpenCommand}"/>
+        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="430,175,0,0" VerticalAlignment="Top" Width="75" Command="{Binding CloseCommand}"/>
         <Button Content="Сохранить" HorizontalAlignment="Left" Margin="585,360,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveCommand}"/>
-        <Button Content="Добавить клиента" HorizontalAlignment="Left" Margin="170,365,0,0" VerticalAlignment="Top" Width="125" Command="{Binding AddCommand}"/>
+        <Button Content="Добавить клиента" HorizontalAlignment="Left" Margin="170,350,0,0" VerticalAlignment="Top" Width="125" Command="{Binding AddCommand}"/>
         <TextBox x:Name="newClient" HorizontalAlignment="Left" Height="23" Margin="10,365,0,0" TextWrapping="Wrap" MaxLength="40" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Удалить клиента" HorizontalAlignment="Left" Margin="170,380,0,0" VerticalAlignment="Top" Width="125" Command="{Binding DelCommand}"/>
     </Grid>
 </Window>
