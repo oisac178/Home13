@@ -105,7 +105,7 @@ namespace Home13
                 return saveCommand ??
                     (saveCommand = new RelayCommand(obj =>
                     {
-
+                        LoadWriteData.ClientsToJSON(People);
                     }));
             }
         }
