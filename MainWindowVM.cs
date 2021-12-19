@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.IO;
 
 namespace Home13
 {
@@ -19,7 +20,12 @@ namespace Home13
 
         public MainWindowVM(ILoad load)
         {
-            People.Add(new Clients { Name = "asdf" });
+            ///People.Add(new Clients { Name = "asdf" });
+            using (FileStream fs = new FileStream(SaveData.Path, FileMode.Open))
+            {
+                LoadWriteData.ClientsFromJSON();
+                fs.Close();
+            }
             saveData = load;
         }
         public ILoad LoadWriteData

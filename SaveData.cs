@@ -18,6 +18,8 @@ namespace Home13
     {
         static readonly string path = @"clients.json";
 
+        public string Path => path;
+
         public Clients ClientsFromJSON()
         {
             string json = File.ReadAllText(path);
