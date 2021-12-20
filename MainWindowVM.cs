@@ -20,13 +20,8 @@ namespace Home13
 
         public MainWindowVM(ILoad load)
         {
-            ///People.Add(new Clients { Name = "asdf" });
-            using (FileStream fs = new FileStream(SaveData.Path, FileMode.Open))
-            {
-                LoadWriteData.ClientsFromJSON();
-                fs.Close();
-            }
-            saveData = load;
+            Clients clients = load.ClientsFromJSON();
+            People.Add(clients);
         }
         public ILoad LoadWriteData
         {
@@ -111,7 +106,7 @@ namespace Home13
                 return saveCommand ??
                     (saveCommand = new RelayCommand(obj =>
                     {
-                        LoadWriteData.ClientsToJSON(People);
+                        ILoad.ClientsToJSON(People);
                     }));
             }
         }
