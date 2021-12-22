@@ -11,6 +11,5 @@ namespace Home13
         public string Name { get; set; }
         public string Acc { get; set; }
         public uint Total { get; set; }
-        public ObservableCollection<Clients> People { get; set; } = new ObservableCollection<Clients>();
     }
 }
