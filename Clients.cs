@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Home13
 {
-    public class Clients
+    public class Client
     {
         public string Name { get; set; }
         public string Acc { get; set; }

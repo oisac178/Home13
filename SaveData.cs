@@ -10,8 +10,8 @@ namespace Home13
 {
     public interface ILoad
     {
-        Clients ClientsFromJSON();
-        void ClientsToJSON(Clients clients);
+        Client ClientsFromJSON();
+        void ClientsToJSON(Client clients);
     }
    
     public class SaveData : ILoad
@@ -20,14 +20,14 @@ namespace Home13
 
         public string Path => path;
 
-        public Clients ClientsFromJSON()
+        public Client ClientsFromJSON()
         {
             string json = File.ReadAllText(path);
-            var people = JsonConvert.DeserializeObject<Clients>(json);
+            var people = JsonConvert.DeserializeObject<Client>(json);
             return people;
         }
 
-        public void ClientsToJSON(Clients clients)
+        public void ClientsToJSON(Client clients)
         {
             string json = JsonConvert.SerializeObject(clients);
             File.WriteAllText(path, json);

@@ -14,13 +14,13 @@ namespace Home13
 {
     public class MainWindowVM : ViewModelBase
     {
-        public ObservableCollection<Clients> People { get; set; } = new ObservableCollection<Clients>();
-        private Clients selectClient;
+        public ObservableCollection<Client> People { get; set; } = new ObservableCollection<Client>();
+        private Client selectClient;
         private ILoad saveData;
 
         public MainWindowVM(ILoad load)
         {
-            Clients clients = load.ClientsFromJSON();
+            Client clients = load.ClientsFromJSON();
             People.Add(clients);
         }
         public ILoad LoadWriteData
@@ -58,7 +58,7 @@ namespace Home13
                 return addCommand ??
                     (addCommand = new RelayCommand(obj =>
                     {
-                        Clients client = new Clients { Name = this.Name};
+                        Client client = new Client { Name = this.Name};
                         People.Add(client);
                     }));
             }
@@ -111,7 +111,7 @@ namespace Home13
             }
         }
 
-        public Clients SelectClient
+        public Client SelectClient
         {
             get { return selectClient; }
             set
