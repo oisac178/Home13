@@ -14,7 +14,7 @@ namespace Home13
 {
     public class MainWindowVM : ViewModelBase
     {
-        public ObservableCollection<Client> People { get; set; } = new ObservableCollection<Client>();
+        public List<Client> People { get; set; } = new List<Client>();
         private Client selectClient;
         private ILoad saveData;
 
