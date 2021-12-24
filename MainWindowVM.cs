@@ -20,8 +20,8 @@ namespace Home13
 
         public MainWindowVM(ILoad load)
         {
-            Client clients = load.ClientsFromJSON();
-            People.Add(clients);
+            List<Client> clients = load.ClientsFromJSON();
+            People.Add(List < Client > clients);
         }
         public ILoad LoadWriteData
         {
@@ -106,7 +106,7 @@ namespace Home13
                 return saveCommand ??
                     (saveCommand = new RelayCommand(obj =>
                     {
-                        ILoad.ClientsToJSON(People);
+                        ILoad.ClientsToJSON(List < Client > People);
                     }));
             }
         }
