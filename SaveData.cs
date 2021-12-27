@@ -27,8 +27,8 @@ namespace Home13
             {
                 json = File.ReadAllText(path);
             }
-            
-            var people = JsonConvert.DeserializeObject<List<Client>>(json);
+
+            List<Client> people = JsonConvert.DeserializeObject<List<Client>>(json);
             return people;
         }
 

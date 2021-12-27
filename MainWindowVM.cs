@@ -21,7 +21,7 @@ namespace Home13
         public MainWindowVM(ILoad load)
         {
             List<Client> clients = load.ClientsFromJSON();
-            People = new ObservableCollection<Client>(clients);
+            var People = new ObservableCollection<Client>(clients);
         }
         public ILoad LoadWriteData
         {
