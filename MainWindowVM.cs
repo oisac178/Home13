@@ -17,11 +17,19 @@ namespace Home13
         public ObservableCollection<Client> People { get; set; } = new ObservableCollection<Client>();
         private Client selectClient;
         private ILoad saveData;
+        private SaveData save;
+        private string json;
 
+        public string Json => json;
         public MainWindowVM(ILoad load)
         {
-            List<Client> clients = load.ClientsFromJSON();
-            var People = new ObservableCollection<Client>(clients);
+            if (File.Exists(save.Path))
+            {
+                json = File.ReadAllText(save.Path);
+                List<Client> clients = load.ClientsFromJSON();
+                var People = new ObservableCollection<Client>(clients);
+            }
+            
         }
         public ILoad LoadWriteData
         {

@@ -17,18 +17,17 @@ namespace Home13
     public class SaveData : ILoad
     {
         static readonly string path = @"clients.json";
-        private string json;
-
+        private MainWindowVM mainWindow;
         public string Path => path;
 
         public List<Client> ClientsFromJSON()
         {
-            if (File.Exists(path))
+            if (!File.Exists(path))
             {
-                json = File.ReadAllText(path);
+                throw new FileNotFoundException(path);
             }
 
-            List<Client> people = JsonConvert.DeserializeObject<List<Client>>(json);
+            List<Client> people = JsonConvert.DeserializeObject<List<Client>>(mainWindow.Json);
             return people;
         }
 
