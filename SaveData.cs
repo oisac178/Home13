@@ -12,6 +12,7 @@ namespace Home13
     {
         List<Client> ClientsFromJSON();
         void ClientsToJSON(List<Client> clients);
+        string Path { get; }
     }
    
     public class SaveData : ILoad
