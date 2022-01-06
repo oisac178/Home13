@@ -18,7 +18,6 @@ namespace Home13
     public class SaveData : ILoad
     {
         static readonly string path = @"clients.json";
-        private MainWindowVM mainWindow;
         public string Path => path;
 
         public List<Client> ClientsFromJSON()
@@ -28,7 +27,7 @@ namespace Home13
                 throw new FileNotFoundException(path);
             }
 
-            List<Client> people = JsonConvert.DeserializeObject<List<Client>>(mainWindow.Json);
+            List<Client> people = JsonConvert.DeserializeObject<List<Client>>(Json);
             return people;
         }
 

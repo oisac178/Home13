@@ -28,6 +28,7 @@ namespace Home13
                 json = File.ReadAllText(saveData.Path);
                 List<Client> clients = load.ClientsFromJSON();
                 var People = new ObservableCollection<Client>(clients);
+
             }
             
         }
