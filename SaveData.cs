@@ -26,8 +26,8 @@ namespace Home13
             {
                 throw new FileNotFoundException(path);
             }
-
-            List<Client> people = JsonConvert.DeserializeObject<List<Client>>(Json);
+            
+            List<Client> people = JsonConvert.DeserializeObject<List<Client>>(File.ReadAllText(path));
             return people;
         }
 
