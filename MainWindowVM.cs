@@ -14,7 +14,14 @@ namespace Home13
 {
     public class MainWindowVM : ViewModelBase
     {
-        public ObservableCollection<Client> People { get; set; } = new ObservableCollection<Client>();
+        public ObservableCollection<Client> People { 
+            get => people;
+            set
+            {
+                people = value;
+                RaisePropertyChanged(nameof(People));
+            }
+        }
         private Client selectClient;
         private ILoad saveData;
         private string json;
@@ -27,7 +34,7 @@ namespace Home13
             {
                 json = File.ReadAllText(saveData.Path);
                 List<Client> clients = load.ClientsFromJSON();
-                var People = new ObservableCollection<Client>(clients);
+                People = new ObservableCollection<Client>(clients);
 
             }
             
