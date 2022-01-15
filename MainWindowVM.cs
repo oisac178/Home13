@@ -57,6 +57,7 @@ namespace Home13
         private RelayCommand saveCommand;
 
         private string name;
+        private ObservableCollection<Client> people;
 
         public string Name
         {
