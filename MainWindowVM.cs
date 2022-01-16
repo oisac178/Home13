@@ -99,7 +99,7 @@ namespace Home13
                 return openCommand ??
                     (openCommand = new RelayCommand(obj =>
                     {
-
+                        new Window_CreateAcc().Show();
                     }));
             }
         }
