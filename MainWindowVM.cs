@@ -57,7 +57,7 @@ namespace Home13
         private RelayCommand saveCommand;
 
         private string name;
-        private ObservableCollection<Client> people;
+        private ObservableCollection<Client> people = new ObservableCollection<Client>();
 
         public string Name
         {
