@@ -55,8 +55,10 @@ namespace Home13
         private RelayCommand openCommand;
         private RelayCommand closeCommand;
         private RelayCommand saveCommand;
+        private RelayCommand createCommand;
 
         private string name;
+        private uint total;
         private ObservableCollection<Client> people = new ObservableCollection<Client>();
 
         public string Name
@@ -66,6 +68,16 @@ namespace Home13
             {
                 RaisePropertyChanged(nameof(Name));
                 name = value;
+            }
+        }
+
+        public uint Total
+        {
+            get { return total; }
+            set
+            {
+                RaisePropertyChanged(nameof(Total));
+                total = value;
             }
         }
         public RelayCommand AddCommand
@@ -124,6 +136,19 @@ namespace Home13
                     (saveCommand = new RelayCommand(obj =>
                     {
                         saveData.ClientsToJSON(People.ToList());
+                    }));
+            }
+        }
+
+        public RelayCommand CreateCommand
+        {
+            get
+            {
+                return createCommand ??
+                    (createCommand = new RelayCommand(obj =>
+                    {
+                        Client client = new Client { Total = this.Total };
+                        SelectClient?.People.Add(client);
                     }));
             }
         }
