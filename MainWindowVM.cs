@@ -111,7 +111,7 @@ namespace Home13
                 return openCommand ??
                     (openCommand = new RelayCommand(obj =>
                     {
-                        new Window_CreateAcc().Show();
+                        new Window_CreateAcc(this).Show();
                     }));
             }
         }
@@ -148,7 +148,7 @@ namespace Home13
                     (createCommand = new RelayCommand(obj =>
                     {
                         Client client = new Client { Total = this.Total };
-                        SelectClient?.People.Add(client);
+                        People.Add(client);
                     }));
             }
         }

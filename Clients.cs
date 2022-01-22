@@ -11,5 +11,7 @@ namespace Home13
         public string Name { get; set; }
         public string Acc { get; set; }
         public uint Total { get; set; }
+
+        public List<string> Accounts = new List<string>();
     }
 }

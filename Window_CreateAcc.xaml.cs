@@ -19,9 +19,11 @@ namespace Home13
     /// </summary>
     public partial class Window_CreateAcc : Window
     {
-        public Window_CreateAcc()
+        private MainWindowVM mainWindowVM;
+
+        public Window_CreateAcc(MainWindowVM mainWindowVM)
         {
-            InitializeComponent();
+            this.mainWindowVM = mainWindowVM;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -31,7 +33,7 @@ namespace Home13
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            mainWindowVM.SelectClient.Accounts.Add("новый счет");
         }
     }
 }
