@@ -24,6 +24,7 @@ namespace Home13
         public Window_CreateAcc(MainWindowVM mainWindowVM)
         {
             this.mainWindowVM = mainWindowVM;
+            InitializeComponent();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
