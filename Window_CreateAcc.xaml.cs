@@ -36,5 +36,9 @@ namespace Home13
         {
             mainWindowVM.SelectClient.Accounts.Add("новый счет");
         }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            mainWindowVM.SelectClient.Accounts.Add("123");
+        }
     }
 }
