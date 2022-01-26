@@ -55,8 +55,7 @@ namespace Home13
         private RelayCommand openCommand;
         private RelayCommand closeCommand;
         private RelayCommand saveCommand;
-        private RelayCommand createCommand;
-
+        
         private string name;
         private uint total;
         private ObservableCollection<Client> people = new ObservableCollection<Client>();
@@ -140,19 +139,7 @@ namespace Home13
             }
         }
 
-        public RelayCommand CreateCommand
-        {
-            get
-            {
-                return createCommand ??
-                    (createCommand = new RelayCommand(obj =>
-                    {
-                        Client client = new Client { Total = this.Total };
-                        People.Add(client);
-                    }));
-            }
-        }
-
+       
         public Client SelectClient
         {
             get { return selectClient; }
