@@ -33,20 +33,7 @@ namespace Home13
                 total = value;
             }
         }
-
-        public RelayCommand CreateCommand
-        {
-            get
-            {
-                return createCommand ??
-                    (createCommand = new RelayCommand(obj =>
-                    {
-                        Client client = new Client { Total = this.Total };
-                        People.Add(client);
-                    }));
-            }
-        }
-
+       
         public Client SelectClient
         {
             get { return selectClient; }

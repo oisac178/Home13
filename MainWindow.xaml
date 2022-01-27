@@ -17,7 +17,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{Binding People}">
+        <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{Binding Accounts}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Тип счёта" DisplayMemberBinding="{Binding Acc}"/>

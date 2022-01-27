@@ -24,6 +24,7 @@ namespace Home13
         public Window_CreateAcc(MainWindowVM mainWindowVM)
         {
             this.mainWindowVM = mainWindowVM;
+            this.DataContext = new Window_Acc_VM();
             InitializeComponent();
         }
 
@@ -31,11 +32,7 @@ namespace Home13
         {
 
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            window_Acc_VM.SelectClient.Accounts.Add("новый счет");
-        }
+                
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             mainWindowVM.SelectClient.Accounts.Add("123");
