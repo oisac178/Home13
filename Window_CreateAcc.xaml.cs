@@ -38,7 +38,7 @@ namespace Home13
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            window_Acc_VM.SelectClient.Accounts.Add("123");
+            mainWindowVM.SelectClient.Accounts.Add("123");
         }
     }
 }
