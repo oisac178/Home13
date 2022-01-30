@@ -4,44 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace Home13
 {
     public class Window_Acc_VM : ViewModelBase
     {
-        public ObservableCollection<Client> People
+        private int sum;
+
+        public int Sum
         {
-            get => people;
+            get => sum;
             set
             {
-                people = value;
-                RaisePropertyChanged(nameof(People));
+                sum = value;
+                RaisePropertyChanged(nameof(Sum));
             }
         }
 
-        private RelayCommand createCommand;
-        private Client selectClient;
-        private uint total;
-        private ObservableCollection<Client> people = new ObservableCollection<Client>();
+        private bool isDeposit;
 
-        public uint Total
+        public bool IsDeposit
         {
-            get { return total; }
+            get { return isDeposit; }
             set
             {
-                RaisePropertyChanged(nameof(Total));
-                total = value;
+                RaisePropertyChanged(nameof(IsDeposit));
+                isDeposit = value;
             }
         }
-       
-        public Client SelectClient
+
+        public ICommand CreateAccountCommand;
+        public Window_Acc_VM()
         {
-            get { return selectClient; }
-            set
+            CreateAccountCommand = new RelayCommand((obj) =>
             {
-                selectClient = value;
-                RaisePropertyChanged(nameof(SelectClient));
-            }
+
+            });
         }
     }
 }
