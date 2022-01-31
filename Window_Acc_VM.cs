@@ -35,11 +35,11 @@ namespace Home13
         }
 
         public ICommand CreateAccountCommand;
-        public Window_Acc_VM()
+        public Window_Acc_VM(MainWindowVM mainWindowVM)
         {
             CreateAccountCommand = new RelayCommand((obj) =>
             {
-
+                mainWindowVM.SelectClient.Accounts.Add("1");
             });
         }
     }
