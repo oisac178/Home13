@@ -17,11 +17,11 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{Binding Accounts}">
+        <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380" ItemsSource="{Binding SelectClient.Accounts}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Тип счёта" DisplayMemberBinding="{Binding Acc}"/>
-                    <GridViewColumn Header="Сумма" DisplayMemberBinding="{Binding Total}"/>
+                    <GridViewColumn Header="Тип счёта" DisplayMemberBinding="{Binding}"/>
+                    <GridViewColumn Header="Сумма" DisplayMemberBinding="{Binding}"/>
                 </GridView>
             </ListView.View>
             <ListView.Resources>

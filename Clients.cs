@@ -12,6 +12,7 @@ namespace Home13
         public string Acc { get; set; }
         public uint Total { get; set; }
 
-        public List<string> Accounts = new List<string>();
+        private static readonly ObservableCollection<string> observableCollection = new ObservableCollection<string>();
+        public ObservableCollection<string> Accounts { get; set; } = observableCollection;
     }
 }

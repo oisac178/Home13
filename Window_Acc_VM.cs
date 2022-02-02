@@ -34,13 +34,28 @@ namespace Home13
             }
         }
 
-        public ICommand CreateAccountCommand;
+        ///public ICommand CreateAccountCommand { get; set; }
+
+        private RelayCommand createAccountCommand;
+        private MainWindowVM mainWindowVM;
+
+        public RelayCommand CreateAccountCommand
+        {
+            get
+            {
+                return createAccountCommand ??
+                    (createAccountCommand = new RelayCommand((obj) =>
+                    {
+                        if (mainWindowVM.SelectClient != null)
+                        {
+                            mainWindowVM.SelectClient.Accounts.Add(Sum.ToString());
+                        }
+                    }));
+            }
+        }
         public Window_Acc_VM(MainWindowVM mainWindowVM)
         {
-            CreateAccountCommand = new RelayCommand((obj) =>
-            {
-                mainWindowVM.SelectClient.Accounts.Add("1");
-            });
+            this.mainWindowVM = mainWindowVM;
         }
     }
 }

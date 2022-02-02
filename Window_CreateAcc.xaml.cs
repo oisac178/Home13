@@ -32,12 +32,7 @@ namespace Home13
         {
 
         }
-                
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            mainWindowVM.SelectClient.Accounts.Add("123");
-        }
-
+        
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton pressed = sender as RadioButton;
