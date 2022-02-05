@@ -20,8 +20,8 @@
         <ListView HorizontalAlignment="Left" Height="90" Margin="325,60,0,0" VerticalAlignment="Top" Width="380" SelectionChanged="acc_Selected" ItemsSource="{Binding SelectClient.Accounts}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Тип счёта" DisplayMemberBinding="{Binding}"/>
-                    <GridViewColumn Header="Сумма" DisplayMemberBinding="{Binding}"/>
+                    <GridViewColumn Header="Тип счёта" DisplayMemberBinding="{Binding Type}"/>
+                    <GridViewColumn Header="Сумма" DisplayMemberBinding="{Binding Value}"/>
                 </GridView>
             </ListView.View>
             <ListView.Resources>

@@ -12,8 +12,8 @@ namespace Home13
         public string Acc { get; set; }
         public uint Total { get; set; }
 
-        private ObservableCollection<string> observableCollection = new ObservableCollection<string>();
-        public ObservableCollection<string> Accounts
+        private ObservableCollection<ClientAccount> observableCollection = new ObservableCollection<ClientAccount>();
+        public ObservableCollection<ClientAccount> Accounts
         {
             get => observableCollection;
             set
