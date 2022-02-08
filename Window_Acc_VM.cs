@@ -48,7 +48,11 @@ namespace Home13
                     {
                         if (mainWindowVM.SelectClient != null)
                         {
-                            mainWindowVM.SelectClient.Accounts.Add(Sum.ToString());
+                            mainWindowVM.SelectClient.Accounts.Add(new ClientAccount
+                            {
+                                Type = pressed
+                                Value = Sum
+                            }) ;
                         }
                     }));
             }
