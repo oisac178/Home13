@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CheckBoxConverter.cs" />
     <Compile Include="ClientAccount.cs" />
     <Compile Include="Clients.cs" />
     <Compile Include="MainWindow.cs" />
