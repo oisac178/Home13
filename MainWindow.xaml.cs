@@ -30,9 +30,6 @@ namespace Home13
 
         }
 
-        private void acc_Selected(object sender, RoutedEventArgs e)
-        {
-            Sum p = (Acccounts).SelectedItem;
-        }
+     
     }
 }

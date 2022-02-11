@@ -50,8 +50,7 @@ namespace Home13
                         {
                             mainWindowVM.SelectClient.Accounts.Add(new ClientAccount
                             {
-                                Type = pressed
-                                Value = Sum
+                                
                             }) ;
                         }
                     }));

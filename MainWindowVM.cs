@@ -122,7 +122,7 @@ namespace Home13
                 return closeCommand ??
                     (closeCommand = new RelayCommand(obj =>
                     {
-                        SelectClient.Accounts.Remove(Sum);
+                        
                     }));
             }
         }
