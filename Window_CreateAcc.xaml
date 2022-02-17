@@ -8,7 +8,7 @@
         Title="Создание счета" Height="192" Width="369">
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="50,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}"/>
-        <RadioButton Content="недепозитный" HorizontalAlignment="Left" Margin="220,41,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="недепозитный" HorizontalAlignment="Left" Margin="220,41,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
         <RadioButton Content="депозитный" HorizontalAlignment="Left" Margin="220,70,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
         <Button Content="Создать" HorizontalAlignment="Left" Margin="145,115,0,0" VerticalAlignment="Top" Width="75" Command="{Binding CreateAccountCommand}"/>
         <Label Content="СУММА" HorizontalAlignment="Left" Margin="50,39,0,0" VerticalAlignment="Top" Width="55"/>
