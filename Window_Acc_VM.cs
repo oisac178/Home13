@@ -50,7 +50,8 @@ namespace Home13
                         {
                             mainWindowVM.SelectClient.Accounts.Add(new ClientAccount
                             {
-                                
+                                Value = Sum,
+                                Type = IsDeposit ? "Депозитный" : "Недепозитный",
                             }) ;
                         }
                     }));
