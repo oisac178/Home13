@@ -36,7 +36,7 @@ namespace Home13
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton pressed = sender as RadioButton;
-            if (pressed.IsChecked == true)
+            if (pressed !=null && pressed.IsChecked == true)
             {
                 window_Acc_VM.IsDeposit = true;
             }
@@ -44,7 +44,7 @@ namespace Home13
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
             RadioButton pressed = sender as RadioButton;
-            if (pressed.IsChecked == true)
+            if (pressed != null && pressed.IsChecked == true)
             {
                 window_Acc_VM.IsDeposit = false;
             }

@@ -29,8 +29,12 @@ namespace Home13
             get { return isDeposit; }
             set
             {
-                RaisePropertyChanged(nameof(IsDeposit));
-                isDeposit = value;
+                if (isDeposit != null)
+                {
+                    RaisePropertyChanged(nameof(IsDeposit));
+                    isDeposit = value;
+                }
+                
             }
         }
 
