@@ -23,6 +23,7 @@ namespace Home13
         private MainWindowVM mainWindowVM;
         public Window_CreateAcc(MainWindowVM mainWindowVM)
         {
+            window_Acc_VM = new Window_Acc_VM(this);
             this.mainWindowVM = mainWindowVM;
             this.DataContext = new Window_Acc_VM(mainWindowVM);
             InitializeComponent();
