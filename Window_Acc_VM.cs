@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,6 +44,7 @@ namespace Home13
         private RelayCommand createAccountCommand;
         private MainWindowVM mainWindowVM;
 
+        public static event Action<string> CreateAcc;
         public RelayCommand CreateAccountCommand
         {
             get
@@ -61,9 +63,14 @@ namespace Home13
                     }));
             }
         }
+        
         public Window_Acc_VM(MainWindowVM mainWindowVM)
         {
             this.mainWindowVM = mainWindowVM;
+            CreateAcc?.Invoke($"Счет создан в {DateTime.Now.ToShortTimeString()}");
+            var data = ***;
+            SaveData processing = new SaveData(data);
+            processing.SetProcess(e => File.WriteAllText("log777.txt", e));
         }
     }
 }

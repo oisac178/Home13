@@ -20,6 +20,9 @@ namespace Home13
         static readonly string path = @"clients.json";
         public string Path => path;
 
+        public delegate void OptionDataProcessing(string Data);
+        string currentData;
+
         public List<Client> ClientsFromJSON()
         {
             if (!File.Exists(path))
@@ -35,6 +38,16 @@ namespace Home13
         {
             string json = JsonConvert.SerializeObject(clients);
             File.WriteAllText(path, json);
+        }
+        private OptionDataProcessing process;
+
+        public void SetProcess(OptionDataProcessing Option)
+        {
+            this.process = Option;
+        }
+        public SaveData(string CurrentData)
+        {
+            this.currentData = CurrentData;
         }
     }
 }
