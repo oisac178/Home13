@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
+
 
 namespace Home13
 {
@@ -60,6 +60,7 @@ namespace Home13
                                 Type = IsDeposit ? "Депозитный" : "Недепозитный",
                             }) ;
                         }
+                        CreateAcc?.Invoke($"Счет создан в {DateTime.Now.ToShortTimeString()}");
                     }));
             }
         }
@@ -67,10 +68,6 @@ namespace Home13
         public Window_Acc_VM(MainWindowVM mainWindowVM)
         {
             this.mainWindowVM = mainWindowVM;
-            CreateAcc?.Invoke($"Счет создан в {DateTime.Now.ToShortTimeString()}");
-            var data = ***;
-            SaveData processing = new SaveData(data);
-            processing.SetProcess(e => File.WriteAllText("log777.txt", e));
         }
     }
 }
