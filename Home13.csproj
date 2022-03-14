@@ -61,6 +61,7 @@
     <Compile Include="CheckBoxConverter.cs" />
     <Compile Include="ClientAccount.cs" />
     <Compile Include="Clients.cs" />
+    <Compile Include="Logging.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="MainWindowVM.cs" />
     <Compile Include="RelayCommand.cs" />
