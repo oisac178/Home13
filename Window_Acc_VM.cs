@@ -43,7 +43,7 @@ namespace Home13
 
         private RelayCommand createAccountCommand;
         private MainWindowVM mainWindowVM;
-
+        
         public static event Action<string> CreateAcc;
         public RelayCommand CreateAccountCommand
         {
@@ -60,13 +60,15 @@ namespace Home13
                                 Type = IsDeposit ? "Депозитный" : "Недепозитный",
                             }) ;
                         }
-                        CreateAcc?.Invoke($"Счет создан в {DateTime.Now.ToShortTimeString()}");
+                        CreateAcc?.Invoke(data);
                     }));
             }
         }
         
         public Window_Acc_VM(MainWindowVM mainWindowVM)
         {
+            CreateAcc += Logging.CreateLog; 
+            Console.WriteLine(CreateAcc);
             this.mainWindowVM = mainWindowVM;
         }
     }
