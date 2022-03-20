@@ -43,7 +43,7 @@ namespace Home13
 
         private RelayCommand createAccountCommand;
         private MainWindowVM mainWindowVM;
-        
+        private string data;
         public static event Action<string> CreateAcc;
         public RelayCommand CreateAccountCommand
         {
@@ -67,9 +67,10 @@ namespace Home13
         
         public Window_Acc_VM(MainWindowVM mainWindowVM)
         {
-            CreateAcc += Logging.CreateLog; 
-            Console.WriteLine(CreateAcc);
+           
             this.mainWindowVM = mainWindowVM;
+            mainWindowVM.CreateAcc += Logging.CreateLog;
+            Console.WriteLine(CreateAcc);
         }
     }
 }
