@@ -15,9 +15,9 @@ namespace Home13
         //    SaveData processing = new SaveData();
         //    processing.SetProcess(e => File.WriteAllText("log777.txt", e));
         //}
-        public static void CreateLog()
+        public static void CreateLog(string data)
         {
-            var data = $"Счет создан в {DateTime.Now.ToShortTimeString()}";           
+            Console.WriteLine($"Счет создан в {DateTime.Now.ToShortTimeString()}  {data}");       
         }
     }
 }
