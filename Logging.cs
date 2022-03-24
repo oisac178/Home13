@@ -9,15 +9,13 @@ namespace Home13
 {
     class Logging
     {
-        //public void CreateLog()
-        //{
-        //    var data = $"Счет создан в {DateTime.Now.ToShortTimeString()}";
-        //    SaveData processing = new SaveData();
-        //    processing.SetProcess(e => File.WriteAllText("log777.txt", e));
-        //}
+       
         public static void CreateLog(string data)
         {
-            Console.WriteLine($"Счет создан в {DateTime.Now.ToShortTimeString()}  {data}");       
+            //Console.WriteLine($"Счет создан в {DateTime.Now.ToShortTimeString()}  {data}");
+            _ = $"Счет создан в {DateTime.Now.ToShortTimeString()}";
+            SaveData processing = new SaveData();
+            processing.SetProcess(e => File.WriteAllText("log777.txt", e));
         }
     }
 }
