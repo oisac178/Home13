@@ -12,9 +12,8 @@ namespace Home13
        
         public static void CreateLog(string data)
         {
-            //Console.WriteLine($"Счет создан в {DateTime.Now.ToShortTimeString()}  {data}");
             data = $"Счет создан в {DateTime.Now.ToShortTimeString()}";
-            File.WriteAllText("log777.txt", data, Encoding.GetEncoding("Windows-1251"));
+            File.AppendAllText("log777.txt", data + Environment.NewLine, Encoding.GetEncoding("Windows-1251"));
         }
     }
 }
