@@ -11,9 +11,9 @@ namespace Home13
 {
     public class Window_Acc_VM : ViewModelBase
     {
-        private int sum;
+        private ulong sum;
 
-        public int Sum
+        public ulong Sum
         {
             get => sum;
             set
@@ -71,6 +71,19 @@ namespace Home13
             this.mainWindowVM = mainWindowVM;
             CreateAcc += Logging.CreateLog;
             Console.WriteLine(CreateAcc);
+            ThrowException();
+        }
+
+        public static void ThrowException()
+        {
+            try
+            {
+                throw new SomethingException("Вы ввели не 16-значное число");
+            }
+            catch (SomethingException e)
+            {
+                Console.WriteLine($"Ошибка ввода числа {e.Message}");
+            }
         }
     }
 }

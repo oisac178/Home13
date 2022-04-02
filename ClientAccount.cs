@@ -19,8 +19,8 @@ namespace Home13
             }
         }
 
-        public int value;
-        public int Value
+        public ulong value;
+        public ulong Value
         {
             get { return this.value; }
             set
