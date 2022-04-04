@@ -70,7 +70,7 @@ namespace Home13
            
             this.mainWindowVM = mainWindowVM;
             CreateAcc += Logging.CreateLog;
-            Console.WriteLine(CreateAcc);
+            
             ThrowException();
         }
 
