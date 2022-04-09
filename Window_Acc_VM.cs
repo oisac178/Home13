@@ -20,6 +20,10 @@ namespace Home13
             {
                 sum = value;
                 RaisePropertyChanged(nameof(Sum));
+                if (sum < 1000)
+                {
+                    ThrowException();
+                }
             }
         }
 
@@ -70,19 +74,17 @@ namespace Home13
            
             this.mainWindowVM = mainWindowVM;
             CreateAcc += Logging.CreateLog;
-            
-            ThrowException();
         }
 
         public static void ThrowException()
         {
             try
             {
-                throw new SomethingException("Вы ввели не 16-значное число");
+                throw new SomethingException("Вы ввели маленькую сумму");
             }
             catch (SomethingException e)
             {
-                Console.WriteLine($"Ошибка ввода числа {e.Message}");
+                Console.WriteLine($"Ошибка ввода {e.Message}");
             }
         }
     }
