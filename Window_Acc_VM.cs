@@ -64,7 +64,7 @@ namespace Home13
                                 Type = IsDeposit ? "Депозитный" : "Недепозитный",
                             }) ;
                         }
-                        CreateAcc?.Invoke("data");
+                        CreateAcc?.DynamicInvoke("data",sum);
                     }));
             }
         }
