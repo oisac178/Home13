@@ -22,7 +22,7 @@ namespace Home13
                 RaisePropertyChanged(nameof(Sum));
                 if (sum < 1000)
                 {
-                    ThrowException();
+                    throw new SomethingException("Вы ввели маленькую сумму");
                 }
             }
         }
