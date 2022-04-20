@@ -35,7 +35,7 @@ namespace Home13
                 json = File.ReadAllText(saveData.Path);
                 List<Client> clients = load.ClientsFromJSON();
                 People = new ObservableCollection<Client>(clients);
-
+                int CountClient = clients.Count;
             }
             
         }
