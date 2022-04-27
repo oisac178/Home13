@@ -20,10 +20,10 @@ namespace Home13
             {
                 sum = value;
                 RaisePropertyChanged(nameof(Sum));
-                if (sum < 1000)
-                {
-                    throw new SomethingException("Вы ввели маленькую сумму");
-                }
+                //if (sum < 1000)
+                //{
+                //    throw new SomethingException("Вы ввели маленькую сумму");
+                //}
             }
         }
 
@@ -64,7 +64,7 @@ namespace Home13
                                 Type = IsDeposit ? "Депозитный" : "Недепозитный",
                             }) ;
                         }
-                        CreateAcc?.DynamicInvoke("data",sum);
+                        CreateAcc?.Invoke("data");
                     }));
             }
         }
