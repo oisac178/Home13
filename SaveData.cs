@@ -14,14 +14,24 @@ namespace Home13
         void ClientsToJSON(List<Client> clients);
         string Path { get; }
     }
-   
+
     public class SaveData : ILoad
     {
-        static readonly string path = @"clients.json";
+        
+        foreach (var path in GetMyFiles.files)
+            string pathIn = path;
+        //static readonly string path = @"clients.json";
         public string Path => path;
 
         public delegate void OptionDataProcessing(string Data);
         
+        public List<string> GetMyFiles()
+        {
+            List<string> files = new List<string>();
+            FileHelper.GetAllFiles(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "*.mydata", files);            
+            return files;
+        }
+
         public List<Client> ClientsFromJSON()
         {
             if (!File.Exists(path))

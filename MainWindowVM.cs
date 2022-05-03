@@ -25,6 +25,7 @@ namespace Home13
         private Client selectClient;
         private ILoad saveData;
         private string json;
+        private int countClient;
 
         public string Json => json;
         public MainWindowVM(ILoad load)
@@ -35,7 +36,7 @@ namespace Home13
                 json = File.ReadAllText(saveData.Path);
                 List<Client> clients = load.ClientsFromJSON();
                 People = new ObservableCollection<Client>(clients);
-                int CountClient = clients.Count;
+                countClient = clients.Count;
             }
             
         }
@@ -50,6 +51,16 @@ namespace Home13
                 }
             }
         }
+        public int CountClient
+        {
+            get { return countClient; }
+            set
+            {
+                RaisePropertyChanged(nameof(CountClient));
+                countClient = value;
+            }
+        }
+
         private RelayCommand addCommand;
         private RelayCommand delCommand;
         private RelayCommand openCommand;
