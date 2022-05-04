@@ -37,6 +37,7 @@ namespace Home13
                 List<Client> clients = load.ClientsFromJSON();
                 People = new ObservableCollection<Client>(clients);
                 countClient = clients.Count;
+                Console.WriteLine("Кол-во клиентов: "+clients.Count);
             }
             
         }

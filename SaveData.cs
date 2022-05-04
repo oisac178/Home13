@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Newtonsoft.Json;
 
 namespace Home13
@@ -17,30 +17,38 @@ namespace Home13
 
     public class SaveData : ILoad
     {
-        
-        foreach (var path in GetMyFiles.files)
-            string pathIn = path;
-        //static readonly string path = @"clients.json";
+        static object obj = new object();
+        static readonly string path;
         public string Path => path;
 
         public delegate void OptionDataProcessing(string Data);
-        
-        public List<string> GetMyFiles()
-        {
-            List<string> files = new List<string>();
-            FileHelper.GetAllFiles(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "*.mydata", files);            
-            return files;
-        }
 
+        public List<Client> ThreadMethod(string path)
+        {
+            int id = Thread.CurrentThread.ManagedThreadId;
+            List<Client> people;
+            lock (obj)
+            {
+                Console.WriteLine("Загрузка :" + path + $"Поток id {id}");
+                people = JsonConvert.DeserializeObject<List<Client>>(File.ReadAllText(path));
+            }
+            return people;
+        }
+        
         public List<Client> ClientsFromJSON()
         {
-            if (!File.Exists(path))
-            {
-                throw new FileNotFoundException(path);
-            }
-            
-            List<Client> people = JsonConvert.DeserializeObject<List<Client>>(File.ReadAllText(path));
-            return people;
+            //if (!File.Exists(path))
+            //{
+            //    throw new FileNotFoundException(path);
+            //}
+            Thread thread1 = new Thread(ThreadMethod); thread1.Start(@"clients2.mydata");
+            Thread thread2 = new Thread(ThreadMethod); thread2.Start(@"clients3.mydata");
+            Thread thread3 = new Thread(ThreadMethod); thread3.Start(@"clients4.mydata");
+            Thread thread4 = new Thread(ThreadMethod); thread4.Start(@"clients5.mydata");
+            Thread thread5 = new Thread(ThreadMethod); thread5.Start(@"clients6.mydata");
+            Thread thread6 = new Thread(ThreadMethod); thread6.Start(@"clients7.mydata");
+            ThreadMethod(@"clients.mydata");
+            return ThreadMethod.people;
         }
 
         public void ClientsToJSON(List<Client> clients)

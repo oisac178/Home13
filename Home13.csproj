@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B972A582-08A7-437D-A4BD-7CFEAC01B305}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>Home13</RootNamespace>
     <AssemblyName>Home13</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -61,6 +64,7 @@
     <Compile Include="CheckBoxConverter.cs" />
     <Compile Include="ClientAccount.cs" />
     <Compile Include="Clients.cs" />
+    <Compile Include="FileHelper.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="MainWindowVM.cs" />
