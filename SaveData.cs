@@ -23,7 +23,7 @@ namespace Home13
 
         public delegate void OptionDataProcessing(string Data);
 
-        public List<Client> ThreadMethod(string path)
+        public void ThreadMethod(string path)
         {
             int id = Thread.CurrentThread.ManagedThreadId;
             List<Client> people;
@@ -32,7 +32,6 @@ namespace Home13
                 Console.WriteLine("Загрузка :" + path + $"Поток id {id}");
                 people = JsonConvert.DeserializeObject<List<Client>>(File.ReadAllText(path));
             }
-            return people;
         }
         
         public List<Client> ClientsFromJSON()
@@ -41,14 +40,15 @@ namespace Home13
             //{
             //    throw new FileNotFoundException(path);
             //}
-            Thread thread1 = new Thread(ThreadMethod); thread1.Start(@"clients2.mydata");
-            Thread thread2 = new Thread(ThreadMethod); thread2.Start(@"clients3.mydata");
-            Thread thread3 = new Thread(ThreadMethod); thread3.Start(@"clients4.mydata");
-            Thread thread4 = new Thread(ThreadMethod); thread4.Start(@"clients5.mydata");
-            Thread thread5 = new Thread(ThreadMethod); thread5.Start(@"clients6.mydata");
-            Thread thread6 = new Thread(ThreadMethod); thread6.Start(@"clients7.mydata");
+            Thread thread1 = new Thread(() => ThreadMethod("")); thread1.Start(@"clients2.mydata");
+            Thread thread2 = new Thread(() => ThreadMethod("")); thread2.Start(@"clients3.mydata");
+            Thread thread3 = new Thread(() => ThreadMethod("")); thread3.Start(@"clients4.mydata");
+            Thread thread4 = new Thread(() => ThreadMethod("")); thread4.Start(@"clients5.mydata");
+            Thread thread5 = new Thread(() => ThreadMethod("")); thread5.Start(@"clients6.mydata");
+            Thread thread6 = new Thread(() => ThreadMethod("")); thread6.Start(@"clients7.mydata");
             ThreadMethod(@"clients.mydata");
-            return ThreadMethod.people;
+            List<Client> people = ThreadMethod("");
+            return people;
         }
 
         public void ClientsToJSON(List<Client> clients)
